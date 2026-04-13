@@ -1,0 +1,59 @@
+/* 
+ * BULLETIN CUSTOM - Personalizaciones para Heskala
+ * Edita este archivo para hacer cambios sin tocar style.css
+ */
+
+:root {
+    /* Cambia estos valores para personalizar el tema */
+    --color-primary: #1f2937;
+    --color-secondary: #6b7280;
+    --color-accent: #3b82f6;
+    --color-border: #e5e7eb;
+}
+
+/* Ejemplos de personalizaciones - descomenta y modifica */
+
+/* 
+ * Cambiar color de los títulos
+ */
+/* .post-title a {
+    color: var(--color-accent);
+}
+
+.post-title a:hover {
+    color: var(--color-primary);
+} */
+
+/*
+ * Cambiar estilo de tarjetas
+ */
+/* .post-card {
+    border: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+} */
+
+/*
+ * Cambiar tipografía
+ */
+/* :root {
+    --font-family: 'Georgia', serif;
+} */
+
+/*
+ * Modo oscuro
+ */
+/* @media (prefers-color-scheme: dark) {
+    :root {
+        --color-primary: #f3f4f6;
+        --color-secondary: #d1d5db;
+        --color-bg: #1f2937;
+        --color-text: #f3f4f6;
+        --color-border: #374151;
+    }
+
+    .post-content code {
+        background: #374151;
+        color: #e5e7eb;
+    }
+} */

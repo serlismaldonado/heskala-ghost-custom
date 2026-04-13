@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="{{@site.lang}}" class="{{body_class}}">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{meta_title}}</title>
+    <meta name="description" content="{{meta_description}}" />
+    <link rel="canonical" href="{{canonical_url}}" />
+    {{ghost_head}}
+    <link rel="stylesheet" href="{{asset "css/style.css"}}" />
+    <link rel="stylesheet" href="{{asset "css/bulletin-custom.css"}}" />
+</head>
+<body class="{{body_class}}">
+    <div class="container">
+        {{#get "posts" limit="12"}}
+        <div class="posts-grid">
+            {{#posts}}
+            <article class="post-card">
+                {{#if feature_image}}
+                <div class="post-image">
+                    <img src="{{feature_image}}" alt="{{title}}" />
+                </div>
+                {{/if}}
+                <div class="post-content">
+                    <h2 class="post-title">
+                        <a href="{{url}}">{{title}}</a>
+                    </h2>
+                    <p class="post-excerpt">{{excerpt}}</p>
+                    <footer class="post-meta">
+                        <span class="post-date">{{date published_at format="D MMM YYYY"}}</span>
+                        {{#if authors}}
+                        <span class="post-author">por {{authors}}</span>
+                        {{/if}}
+                    </footer>
+                </div>
+            </article>
+            {{/posts}}
+        </div>
+        {{/get}}
+    </div>
+
+    {{ghost_foot}}
+</body>
+</html>

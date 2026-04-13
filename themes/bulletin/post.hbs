@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="{{@site.lang}}" class="{{body_class}}">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{meta_title}}</title>
+    <meta name="description" content="{{meta_description}}" />
+    <link rel="canonical" href="{{canonical_url}}" />
+    {{ghost_head}}
+    <link rel="stylesheet" href="{{asset "css/style.css"}}" />
+    <link rel="stylesheet" href="{{asset "css/bulletin-custom.css"}}" />
+</head>
+<body class="{{body_class}}">
+    <div class="container">
+        <article class="post-full">
+            <header class="post-header">
+                {{#if feature_image}}
+                <figure class="post-feature-image">
+                    <img src="{{feature_image}}" alt="{{title}}" />
+                </figure>
+                {{/if}}
+                
+                <h1 class="post-title">{{title}}</h1>
+                
+                <p class="post-excerpt">{{excerpt}}</p>
+                
+                <div class="post-meta">
+                    <time class="post-date" datetime="{{date published_at format="YYYY-MM-DD"}}">
+                        {{date published_at format="D MMMM YYYY"}}
+                    </time>
+                    {{#if authors}}
+                    <div class="post-authors">
+                        {{#authors}}
+                        <span class="post-author">{{name}}</span>
+                        {{/authors}}
+                    </div>
+                    {{/if}}
+                    {{#if reading_time}}
+                    <span class="post-reading-time">{{reading_time}}</span>
+                    {{/if}}
+                </div>
+            </header>
+
+            <div class="post-content">
+                {{content}}
+            </div>
+
+            <footer class="post-footer">
+                {{#if tags}}
+                <div class="post-tags">
+                    {{#tags}}
+                    <a href="{{url}}" class="tag">{{name}}</a>
+                    {{/tags}}
+                </div>
+                {{/if}}
+            </footer>
+        </article>
+
+        {{#get "posts" limit="3" filter="-id:{{id}}"}}
+        <aside class="related-posts">
+            <h3>Posts relacionados</h3>
+            <div class="related-grid">
+                {{#posts}}
+                <article class="related-card">
+                    <h4><a href="{{url}}">{{title}}</a></h4>
+                </article>
+                {{/posts}}
+            </div>
+        </aside>
+        {{/get}}
+    </div>
+
+    {{ghost_foot}}
+</body>
+</html>

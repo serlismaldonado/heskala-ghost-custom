@@ -1,0 +1,36 @@
+{
+  "name": "bulletin-custom",
+  "description": "Bulletin theme customized for Heskala",
+  "demo": "https://blog.heskala.com",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": {
+    "name": "Heskala",
+    "email": "admin@heskala.com",
+    "url": "https://heskala.com"
+  },
+  "gpm": {
+    "type": "theme",
+    "categories": [
+      "minimal",
+      "personal",
+      "magazine"
+    ]
+  },
+  "keywords": [
+    "ghost",
+    "theme",
+    "bulletin",
+    "minimal",
+    "responsive"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/heskala-ghost-custom.git"
+  },
+  "bugs": "https://github.com/yourusername/heskala-ghost-custom/issues",
+  "support": "https://github.com/yourusername/heskala-ghost-custom",
+  "config": {
+    "posts_per_page": 12
+  }
+}
