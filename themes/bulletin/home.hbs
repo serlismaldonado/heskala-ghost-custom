@@ -83,14 +83,19 @@
                     </div>
                 </div>
             </div>
+
+            {{!-- Grid de todos los artículos --}}
+            {{> "articles-grid"}}
         {{else}}
             {{#foreach posts limit="1"}}
                 {{> "article"}}
             {{/foreach}}
+            {{> "articles-grid"}}
         {{/unless}}
     {{else}}
         {{#foreach posts limit="1"}}
             {{> "article"}}
         {{/foreach}}
+        {{> "articles-grid"}}
     {{/if}}
 </main>
