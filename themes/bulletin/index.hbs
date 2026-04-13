@@ -1,44 +1,32 @@
-<!DOCTYPE html>
-<html lang="{{@site.lang}}" class="{{body_class}}">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{meta_title}}</title>
-    <meta name="description" content="{{meta_description}}" />
-    <link rel="canonical" href="{{canonical_url}}" />
-    {{ghost_head}}
-    <link rel="stylesheet" href="{{asset "css/style.css"}}" />
-    <link rel="stylesheet" href="{{asset "css/bulletin-custom.css"}}" />
-</head>
-<body class="{{body_class}}">
-    <div class="container">
-        {{#get "posts" limit="12"}}
-        <div class="posts-grid">
-            {{#posts}}
-            <article class="post-card">
-                {{#if feature_image}}
-                <div class="post-image">
-                    <img src="{{feature_image}}" alt="{{title}}" />
-                </div>
-                {{/if}}
-                <div class="post-content">
-                    <h2 class="post-title">
-                        <a href="{{url}}">{{title}}</a>
-                    </h2>
-                    <p class="post-excerpt">{{excerpt}}</p>
-                    <footer class="post-meta">
-                        <span class="post-date">{{date published_at format="D MMM YYYY"}}</span>
-                        {{#if authors}}
-                        <span class="post-author">por {{authors}}</span>
-                        {{/if}}
-                    </footer>
-                </div>
-            </article>
-            {{/posts}}
-        </div>
-        {{/get}}
-    </div>
+{{!< default}}
 
-    {{ghost_foot}}
-</body>
-</html>
+<main id="gh-main" class="gh-main gh-canvas">
+    <section class="gh-pagehead">
+        <header class="gh-pagehead-content">
+            <h1 class="gh-pagehead-title">{{t "Archive"}}</h1>
+
+            <div class="gh-pagehead-description">
+                {{#if description}}
+                    {{description}}
+                {{else}}
+                {{plural pagination.total 
+                    empty=(t "A collection of 0 issues") singular=(t "A collection of 1 issue") 
+                    plural=(t "A collection of {numberOfIssues} issues" numberOfIssues=pagination.total) }}
+                {{/if}}
+            </div>
+        </header>
+    </section>
+
+    <div class="gh-feed">
+        {{#match pagination.page 2}}
+            {{#get "posts" limit=@config.posts_per_page as |recent|}}
+                {{#foreach recent}}
+                    {{> "loop"}}
+                {{/foreach}}
+            {{/get}}
+        {{/match}}
+        {{#foreach posts}}
+            {{> "loop"}}
+        {{/foreach}}
+    </div>
+</main>
