@@ -22,16 +22,17 @@
 }
 
 .gh-articles-list-header {
-    padding: 2rem;
+    padding: 2.5rem 2rem;
     border-bottom: 1px solid var(--color-border);
     flex-shrink: 0;
 }
 
 .gh-articles-list-title {
-    font-size: 1.8rem;
+    font-size: 2.4rem;
     font-weight: 800;
     color: var(--color-primary);
     margin: 0;
+    line-height: 1.2;
 }
 
 .gh-articles-list-container {
@@ -42,8 +43,8 @@
 
 .gh-article-list-item {
     display: flex;
-    gap: 1.5rem;
-    padding: 1.5rem;
+    gap: 2rem;
+    padding: 2rem 2rem;
     border-bottom: 1px solid var(--color-border);
     transition: background-color 0.2s ease;
     cursor: pointer;
@@ -54,8 +55,8 @@
 }
 
 .gh-article-list-image {
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     border-radius: 4px;
     overflow: hidden;
     flex-shrink: 0;
@@ -76,10 +77,10 @@
 }
 
 .gh-article-list-title {
-    margin: 0 0 0.75rem 0;
-    font-size: 1.1rem;
+    margin: 0 0 1rem 0;
+    font-size: 1.3rem;
     font-weight: 700;
-    line-height: 1.4;
+    line-height: 1.5;
 }
 
 .gh-article-list-title a {
@@ -93,8 +94,8 @@
 
 .gh-article-list-meta {
     display: flex;
-    gap: 1rem;
-    font-size: 0.95rem;
+    gap: 1.5rem;
+    font-size: 1.05rem;
     color: var(--color-secondary);
 }
 
@@ -104,7 +105,7 @@
 
 /* Scrollbar personalizado */
 .gh-articles-list-container::-webkit-scrollbar {
-    width: 6px;
+    width: 8px;
 }
 
 .gh-articles-list-container::-webkit-scrollbar-track {
@@ -113,22 +114,123 @@
 
 .gh-articles-list-container::-webkit-scrollbar-thumb {
     background: var(--color-border);
-    border-radius: 3px;
+    border-radius: 4px;
 }
 
 .gh-articles-list-container::-webkit-scrollbar-thumb:hover {
     background: var(--color-secondary);
 }
 
-/* RESPONSIVE */
-@media (max-width: 900px) {
-    .gh-articles-list-container {
-        max-height: 50vh;
+/* RESPONSIVE - Desktop */
+@media (min-width: 1200px) {
+    .gh-articles-list-title {
+        font-size: 2.4rem;
+    }
+
+    .gh-article-list-title {
+        font-size: 1.3rem;
     }
 }
 
+/* RESPONSIVE - Tablet */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .gh-articles-list-container {
+        max-height: 60vh;
+    }
+
+    .gh-article-list-item {
+        padding: 1.5rem;
+        gap: 1.5rem;
+    }
+
+    .gh-article-list-image {
+        width: 80px;
+        height: 80px;
+    }
+
+    .gh-articles-list-title {
+        font-size: 2rem;
+    }
+
+    .gh-article-list-title {
+        font-size: 1.1rem;
+    }
+
+    .gh-article-list-meta {
+        font-size: 0.95rem;
+    }
+}
+
+/* RESPONSIVE - Mobile */
 @media (max-width: 768px) {
+    .gh-home {
+        grid-template-columns: 1fr !important;
+        height: auto;
+    }
+
     .gh-articles-list-vertical {
-        display: none;
+        height: auto;
+    }
+
+    .gh-articles-list-header {
+        padding: 2rem;
+    }
+
+    .gh-articles-list-title {
+        font-size: 1.8rem;
+    }
+
+    .gh-articles-list-container {
+        max-height: 70vh;
+        padding: 1rem 0;
+    }
+
+    .gh-article-list-item {
+        display: flex;
+        gap: 1.5rem;
+        padding: 1.5rem;
+    }
+
+    .gh-article-list-image {
+        width: 70px;
+        height: 70px;
+    }
+
+    .gh-article-list-title {
+        font-size: 1rem;
+    }
+
+    .gh-article-list-meta {
+        font-size: 0.9rem;
+    }
+}
+
+/* RESPONSIVE - Mobile pequeño */
+@media (max-width: 480px) {
+    .gh-articles-list-header {
+        padding: 1.5rem;
+    }
+
+    .gh-articles-list-title {
+        font-size: 1.5rem;
+    }
+
+    .gh-article-list-item {
+        padding: 1rem 1.5rem;
+        gap: 1rem;
+    }
+
+    .gh-article-list-image {
+        width: 60px;
+        height: 60px;
+    }
+
+    .gh-article-list-title {
+        font-size: 0.95rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .gh-article-list-meta {
+        font-size: 0.85rem;
     }
 }
