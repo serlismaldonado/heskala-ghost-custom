@@ -5,7 +5,6 @@ app = 'heskala-ghost'
 primary_region = 'dfw'
 
 [build]
-  builder = "docker"
   dockerfile = "./Dockerfile"
 
 [env]
