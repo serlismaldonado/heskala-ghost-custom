@@ -12,179 +12,123 @@
 }
 
 /* 
- * GRID DE ARTÍCULOS
+ * LISTADO VERTICAL DE ARTÍCULOS EN COLUMNA DERECHA
  */
-.gh-articles-grid {
-    width: 100%;
-    padding: 4rem 2rem;
-    background: var(--color-white);
-    box-sizing: border-box;
-    overflow-x: hidden;
-}
 
-.gh-articles-grid-wrapper {
-    max-width: 1200px;
-    margin: 0 auto;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.gh-articles-title {
-    font-size: 2rem;
-    font-weight: 800;
-    margin-bottom: 3rem;
-    color: var(--color-primary);
-    text-align: center;
-}
-
-.gh-articles-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 2rem;
-}
-
-.gh-article-card {
-    border: 1px solid var(--color-border);
-    border-radius: 8px;
-    overflow: hidden;
-    transition: all 0.3s ease;
+.gh-articles-list-vertical {
     display: flex;
     flex-direction: column;
     height: 100%;
 }
 
-.gh-article-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+.gh-articles-list-header {
+    padding: 2rem;
+    border-bottom: 1px solid var(--color-border);
+    flex-shrink: 0;
 }
 
-.gh-article-card-image {
-    width: 100%;
-    height: 200px;
+.gh-articles-list-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    margin: 0;
+}
+
+.gh-articles-list-container {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem 0;
+}
+
+.gh-article-list-item {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--color-border);
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+}
+
+.gh-article-list-item:hover {
+    background-color: #f9f9f9;
+}
+
+.gh-article-list-image {
+    width: 60px;
+    height: 60px;
+    border-radius: 4px;
     overflow: hidden;
+    flex-shrink: 0;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
 
-.gh-article-card-image img {
+.gh-article-list-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.3s ease;
 }
 
-.gh-article-card:hover .gh-article-card-image img {
-    transform: scale(1.05);
-}
-
-.gh-article-card-content {
-    padding: 1.5rem;
+.gh-article-list-content {
+    flex: 1;
     display: flex;
     flex-direction: column;
-    flex: 1;
+    justify-content: space-between;
 }
 
-.gh-article-card-title {
-    margin: 0 0 1rem 0;
-    line-height: 1.4;
-    font-size: 1.1rem;
+.gh-article-list-title {
+    margin: 0 0 0.5rem 0;
+    font-size: 0.95rem;
     font-weight: 700;
+    line-height: 1.3;
 }
 
-.gh-article-card-title a {
+.gh-article-list-title a {
     color: var(--color-primary);
     text-decoration: none;
 }
 
-.gh-article-card-title a:hover {
+.gh-article-list-title a:hover {
     color: var(--color-accent);
 }
 
-.gh-article-card-excerpt {
-    color: var(--color-secondary);
-    font-size: 0.95rem;
-    line-height: 1.6;
-    margin: 0 0 auto 0;
-    flex: 1;
-}
-
-.gh-article-card-meta {
+.gh-article-list-meta {
     display: flex;
-    gap: 1rem;
-    margin-top: 1rem;
-    padding-top: 1rem;
-    border-top: 1px solid var(--color-border);
-    font-size: 0.85rem;
+    gap: 0.75rem;
+    font-size: 0.8rem;
     color: var(--color-secondary);
 }
 
-.gh-article-card-author {
+.gh-article-list-author {
     font-weight: 600;
 }
 
+/* Scrollbar personalizado */
+.gh-articles-list-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.gh-articles-list-container::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.gh-articles-list-container::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: 3px;
+}
+
+.gh-articles-list-container::-webkit-scrollbar-thumb:hover {
+    background: var(--color-secondary);
+}
+
 /* RESPONSIVE */
+@media (max-width: 900px) {
+    .gh-articles-list-container {
+        max-height: 50vh;
+    }
+}
+
 @media (max-width: 768px) {
-    .gh-articles-grid {
-        padding: 2rem 1rem;
-    }
-
-    .gh-articles-list {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-
-    .gh-articles-title {
-        font-size: 1.5rem;
-        margin-bottom: 2rem;
-    }
-
-    .gh-article-card-image {
-        height: 150px;
+    .gh-articles-list-vertical {
+        display: none;
     }
 }
-
-/* Ejemplos de personalizaciones - descomenta y modifica */
-
-/* 
- * Cambiar color de los títulos
- */
-/* .post-title a {
-    color: var(--color-accent);
-}
-
-.post-title a:hover {
-    color: var(--color-primary);
-} */
-
-/*
- * Cambiar estilo de tarjetas
- */
-/* .post-card {
-    border: none;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 12px;
-} */
-
-/*
- * Cambiar tipografía
- */
-/* :root {
-    --font-family: 'Georgia', serif;
-} */
-
-/*
- * Modo oscuro
- */
-/* @media (prefers-color-scheme: dark) {
-    :root {
-        --color-primary: #f3f4f6;
-        --color-secondary: #d1d5db;
-        --color-bg: #1f2937;
-        --color-text: #f3f4f6;
-        --color-border: #374151;
-    }
-
-    .post-content code {
-        background: #374151;
-        color: #e5e7eb;
-    }
-} */
