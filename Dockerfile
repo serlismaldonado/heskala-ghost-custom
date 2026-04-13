@@ -1,9 +1,14 @@
 FROM ghost:5-alpine
 
-# Copiar tema personalizado al contenedor
-COPY themes/bulletin /var/lib/ghost/content/themes/bulletin
+# Copiar tema personalizado a ubicación temporal
+COPY themes/bulletin /bulletin-theme
 
-# Establecer permisos
-RUN chown -R node:node /var/lib/ghost/content/themes/bulletin
+# Copiar script de entrada
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+# Usar el script como entrypoint
+ENTRYPOINT ["/entrypoint.sh"]
+CMD ["node", "current/index.js"]
 
 EXPOSE 2368
